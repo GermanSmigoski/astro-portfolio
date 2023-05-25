@@ -9,6 +9,7 @@
       padding: 1rem;
       display: flex;
       justify-content: space-around;
+      z-index: 100;
     }
 
     h1 {
@@ -32,12 +33,19 @@
       text-decoration: none;
     }
   </style>
-
+  <script>
+    const button = document.querySelector("#dark-mode");
+    const body = document.body;
+    button.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+    });
+  </script>
   <header>
     <h1>Mi Sitio Web</h1>
     <nav>
       <ul>
-        <li><a href="#proyects">Proyects</a></li>
+        <li><button id="dark-mode">Modo Oscuro</button></li>
+        <li><a href="#proyects">Proyectos</a></li>
         <li><a href="#redes">Redes</a></li>
         <li><a href="#skills">Skills</a></li>
       </ul>

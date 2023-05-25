@@ -21,38 +21,57 @@
     <slot />
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-    scroll-behavior: smooth;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-  section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f2f2f2;
-  }
-
-  .section-one {
-    background-color: #f9f9f9;
-  }
-
-  .section-two {
-    background-color: #e9e9e9;
-  }
-</style>
+<astro>
+  <style is:global>
+    :root {
+      --accent: 124, 58, 237;
+      --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        #da62c4 30%,
+        white 60%
+      );
+    }
+    html {
+      font-family: system-ui, sans-serif;
+      background-color: #f6f6f6;
+      scroll-behavior: smooth;
+    }
+    code {
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f2f2f2;
+    }
+    .section-one {
+      background-color: #f9f9f9;
+    }
+    .section-two {
+      background-color: #e9e9e9;
+    }
+    body {
+      /* Estilos para el modo claro */
+      background-color: #fff;
+      color: #333;
+    }
+    body.dark-mode {
+      /* Estilos para el modo oscuro */
+      background-color: #272727;
+      color: #fff;
+    }
+    body.dark-mode section {
+      background-color: #333;
+    }
+    body.dark-mode .section-one {
+      background-color: #3a3a3a;
+    }
+    body.dark-mode .section-two {
+      background-color: #474747;
+    }
+  </style>
+</astro>
