@@ -1,38 +1,100 @@
 <astro>
-  <section class="skills" id="skills">
-    <h2>Habilidades</h2>
-    <ul class="skills-list">
-      <li><span class="skill">HTML</span></li>
-      <li><span class="skill">CSS</span></li>
-      <li><span class="skill">JavaScript</span></li>
-      <li><span class="skill">React</span></li>
-      <li><span class="skill">Node.js</span></li>
-    </ul>
+  <section
+    id="skills"
+    class="flex items-center content-center bg-white dark:bg-gray-800"
+  >
+    <div class="flex items-center overflow-hidden w-3/6 h-3/6">
+      <div class="pacman"></div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"></img>
+      </div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"></img>
+      </div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"></img>
+      </div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"></img>
+      </div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"></img>
+      </div>
+      <div class="path"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"></img>
+      </div>
+    </div>
   </section>
   <style>
-    .skills {
-      margin-bottom: 2rem;
-    }
 
-    .skills-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .path {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      animation: eating-path 1.3s linear infinite;
+    }
+    .path img{
+      width: 60px;
+      height: 60px;
+    }
+    .path::before {
+      content: "";
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+    }
+    @keyframes eating-path {
+      0% {
+        transform: translateX(50%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
-    .skills-list li {
-      margin-right: 1rem;
+    .pacman {
+      position: relative;
+      background: transparent;
+      z-index: 1;
     }
 
-    .skill {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #333;
-      color: #fff;
-      border-radius: 5px;
-      font-size: 0.9rem;
+    .pacman::before,
+    .pacman::after {
+      content: "";
+      position: absolute;
+      top: -35px;
+      display: block;
+      border-radius: 50%;
+      height: 0px;
+      width: 0px;
+    }
+
+    .pacman::before {
+      animation: chunk-top 0.5s ease infinite;
+      border: 35px solid #ffcc00;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    @keyframes chunk-top {
+      0%,
+      100% {
+        transform: rotate(-45deg);
+      }
+      50% {
+        transform: rotate(-80deg);
+      }
+    }
+
+    .pacman::after {
+      animation: chunk-bottom 0.5s ease infinite;
+      border: 35px solid #ffcc00;
+      border-right-color: transparent;
+      border-top-color: transparent;
+    }
+    @keyframes chunk-bottom {
+      0%,
+      100% {
+        transform: rotate(-40deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
     }
   </style>
 </astro>
